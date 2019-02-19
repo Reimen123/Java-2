@@ -68,12 +68,15 @@ public class Product {
         Product product = (Product) o;
         return Objects.equals(id, product.id) &&
                 Objects.equals(name, product.name) &&
-                Objects.equals(price, product.price);
+                Objects.equals(price, product.price) &&
+                category.equals(product.category) &&
+                Objects.equals(discount, product.discount) &&
+                Objects.equals(description, product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price);
+        return Objects.hash(id, name, price, category, discount, description);
     }
 
     @Override
@@ -82,6 +85,9 @@ public class Product {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", category=" + category +
+                ", discount=" + discount +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
